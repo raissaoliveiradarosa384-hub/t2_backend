@@ -5,7 +5,7 @@ services:
     ports:
       - "8000:8000"
     networks:
-      - app_backend
+      - app_network
     environment:
       - DB_URL=${DB_URL}
     depends_on:
@@ -18,7 +18,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
-      - backend_network
+      - app_network
     env_file:
       - .env
     healthcheck:
